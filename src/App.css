@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  li {
+      list-style-type: none;
+      width: 300px;
+      height: 50px;
   }
-  to {
-    transform: rotate(360deg);
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
+
+  .All-List {
+      margin: 30px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      justify-content: space-evenly;
+  }
+
+  .song {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .song-contianer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .song {
+    width: 250px;
+  }
+
+  .headset-icon{
+      margin-right: 5px;
+      color: gray;
+  }
+
+  .headset-icon-listened{
+    margin-right: 5px;
+    color: green;
 }
+
+  .like-icon-empty {
+      color: gray;
+  }
+
+  .like-icon {
+      color: red;;
+  }

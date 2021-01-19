@@ -1,3 +1,7 @@
+
+// this is the react version of playlist
+
+
 import React, { Component } from "react";
 
 export default class PlayList extends Component {
@@ -103,14 +107,22 @@ export default class PlayList extends Component {
                   <span className="track">{song.track}</span>
                 </div>
                 <div className="icons">
-                <i
-                  className={song.listened ? "headset-icon-listened ion-md-headset" : "headset-icon ion-md-headset"}
-                  onClick={() => {
-                    this.handleToggleListened(song.id);
-                  }}
-                ></i>
                   <i
-                    className={song.favorite ? "like-icon ion-md-heart" : "like-icon-empty ion-md-heart-empty"}
+                    className={
+                      song.listened
+                        ? "headset-icon-listened ion-md-headset"
+                        : "headset-icon ion-md-headset"
+                    }
+                    onClick={() => {
+                      this.handleToggleListened(song.id);
+                    }}
+                  ></i>
+                  <i
+                    className={
+                      song.favorite
+                        ? "like-icon ion-md-heart"
+                        : "like-icon-empty ion-md-heart-empty"
+                    }
                     onClick={() => {
                       this.handleToggleFavortie(song.id);
                     }}
@@ -122,7 +134,7 @@ export default class PlayList extends Component {
         </ul>
 
         <ul className="list-container">
-        <li className="title">Listened</li>
+          <li className="title">Listened</li>
           {this.state.playList.map((song) => {
             if (song.listened) {
               return (
@@ -132,19 +144,27 @@ export default class PlayList extends Component {
                     <span className="track">{song.track}</span>
                   </div>
                   <div className="icons">
-                <i
-                  className={song.listened ? "headset-icon-listened ion-md-headset" : "headset-icon ion-md-headset"}
-                  onClick={() => {
-                    this.handleToggleListened(song.id);
-                  }}
-                ></i>
-                  <i
-                    className={song.favorite ? "like-icon ion-md-heart" : "like-icon-empty ion-md-heart-empty"}
-                    onClick={() => {
-                      this.handleToggleFavortie(song.id);
-                    }}
-                  ></i>
-                </div>
+                    <i
+                      className={
+                        song.listened
+                          ? "headset-icon-listened ion-md-headset"
+                          : "headset-icon ion-md-headset"
+                      }
+                      onClick={() => {
+                        this.handleToggleListened(song.id);
+                      }}
+                    ></i>
+                    <i
+                      className={
+                        song.favorite
+                          ? "like-icon ion-md-heart"
+                          : "like-icon-empty ion-md-heart-empty"
+                      }
+                      onClick={() => {
+                        this.handleToggleFavortie(song.id);
+                      }}
+                    ></i>
+                  </div>
                 </li>
               );
             } else {
@@ -154,7 +174,7 @@ export default class PlayList extends Component {
         </ul>
 
         <ul className="list-container">
-        <li className="title">Favorite</li>
+          <li className="title">Favorite</li>
           {this.state.playList.map((song) => {
             if (song.favorite) {
               return (
@@ -164,23 +184,30 @@ export default class PlayList extends Component {
                     <span className="track">{song.track}</span>
                   </div>
                   <div className="icons">
-                <i
-                  className={song.listened ? "headset-icon-listened ion-md-headset" : "headset-icon ion-md-headset"}
-                  onClick={() => {
-                    this.handleToggleListened(song.id);
-                  }}
-                ></i>
-                  <i
-                    className={song.favorite ? "like-icon ion-md-heart" : "like-icon-empty ion-md-heart-empty"}
-                    onClick={() => {
-                      this.handleToggleFavortie(song.id);
-                    }}
-                  ></i>
-                </div>
+                    <i
+                      className={
+                        song.listened
+                          ? "headset-icon-listened ion-md-headset"
+                          : "headset-icon ion-md-headset"
+                      }
+                      onClick={() => {
+                        this.handleToggleListened(song.id);
+                      }}
+                    ></i>
+                    <i
+                      className={
+                        song.favorite
+                          ? "like-icon ion-md-heart"
+                          : "like-icon-empty ion-md-heart-empty"
+                      }
+                      onClick={() => {
+                        this.handleToggleFavortie(song.id);
+                      }}
+                    ></i>
+                  </div>
                 </li>
               );
-            } 
-            else {
+            } else {
               return "";
             }
           })}

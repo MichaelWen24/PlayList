@@ -2,57 +2,71 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
 
-  li {
-      list-style-type: none;
-      width: 300px;
-      height: 50px;
-  }
-  .title {
+html {
+    background-color: blueviolet;
+}
+
+li {
+    list-style-type: none;
+    width: 300px;
+    height: 50px;
+    padding-left: 10px;
+}
+
+.list-container {
+    width: 300px;
+    background-color: aliceblue;
+}
+
+.title {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  .All-List {
-      margin: 30px;
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      justify-content: space-evenly;
-  }
+.All-List {
+    margin: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-evenly;
+}
 
-  .song {
-      display: flex;
-      flex-direction: column;
-  }
+.title {
+    color: aliceblue;
+    background-color: rgb(33, 3, 62);
+}
 
-  .song-contianer {
+.song {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.song-contianer {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-  }
-
-  .song {
-    width: 250px;
-  }
-
-  .headset-icon{
-      margin-right: 5px;
-      color: gray;
-  }
-
-  .headset-icon-listened{
-    margin-right: 5px;
-    color: green;
 }
 
-  .like-icon-empty {
-      color: gray;
-  }
+.headset-icon {
+    margin-right: 5px;
+    color: gray;
+}
 
-  .like-icon {
-      color: red;;
-  }
+.headset-icon-listened {
+    margin-right: 5px;
+    color: rgb(3, 232, 3);
+}
+
+.like-icon-empty {
+    color: gray;
+}
+
+.like-icon {
+    color: red;
+    ;
+}

@@ -1,11 +1,13 @@
-import React from 'react';
-import './App.css';
-import PlayList from './components/PlayList';
+import React from "react";
+import "./App.css";
+import PlayListReact from "./components/PlayListReact";
+import PlayListRedux from "./components/PlayListRedux";
 
 function App() {
   return (
     <div className="App">
-      <PlayList/>
+      {/* <PlayListReact /> */}
+      <PlayListRedux />
     </div>
   );
 }

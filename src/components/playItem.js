@@ -1,53 +1,56 @@
-import React from 'react'
+import React from "react";
 import { connect } from "react-redux";
-import { handleToggleListened, handleToggleFavorite } from '../actions/PlayListActions';
+import {
+  handleToggleListened,
+  handleToggleFavorite,
+} from "../actions/PlayListActions";
 
-const mapStateToProps = (state) => {
-    return {
-        song: state.
-    }
-}
-
-const mapActionToProps = (dispatch) => {
-    return {
-        handleToggleListenedAction: (song) => dispatch(handleToggleListened(song)),
-        handleToggleFavorite: (song) => dispatch(handleToggleFavorite(song))
-    }
-}
-
-export default function PlayItem({song}) {
+function PlayItem(props) {
+//   props.map((song) => {
     return (
-        <>
-            <li className="song-contianer" key={song.id}>
-                <div className="song">
-                  <span className="artist">{song.artist}</span>
-                  <span className="track">{song.track}</span>
-                </div>
-                <div className="icons">
-                  <i
-                    className={
-                      song.listened
-                        ? "headset-icon-listened ion-md-headset"
-                        : "headset-icon ion-md-headset"
-                    }
-                    onClick={() => {
-                      dispatch(handleToggleListened(song.id));
-                    }}
-                  ></i>
-                  <i
-                    className={
-                      song.favorite
-                        ? "like-icon ion-md-heart"
-                        : "like-icon-empty ion-md-heart-empty"
-                    }
-                    onClick={() => {
-                      dispatch(handleToggleFavorite(song.id));
-                    }}
-                  ></i>
-                </div>
-              </li>
-        </>
+      <>
+        <li className="song-contianer" key={props.song.id}>
+          <div className="song">
+            <span className="artist">{props.song.artist}</span>
+            <span className="track">{props.song.track}</span>
+          </div>
+          <div className="icons">
+            <i
+              className={
+                props.song.listened
+                  ? "headset-icon-listened ion-md-headset"
+                  : "headset-icon ion-md-headset"
+              }
+              onClick={() => {
+                props.handleToggleListenedAction(props.song.id);
+              }}
+            ></i>
+            <i
+              className={
+                props.song.favorite
+                  ? "like-icon ion-md-heart"
+                  : "like-icon-empty ion-md-heart-empty"
+              }
+              onClick={() => {
+                props.handleToggleFavoriteAction(props.song.id);
+              }}
+            ></i>
+          </div>
+        </li>
+      </>
     );
+//   });
 }
 
-export default connect ()(song);
+const mapActionsToProps = (dispatch) => {
+  return {
+    handleToggleFavoriteAction: (id) => {
+      dispatch(handleToggleFavorite(id));
+    },
+    handleToggleListenedAction: (id) => {
+      dispatch(handleToggleListened(id));
+    },
+  };
+};
+
+export default connect(null, mapActionsToProps)(PlayItem);

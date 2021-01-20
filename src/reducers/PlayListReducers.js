@@ -1,29 +1,40 @@
 import { HANDLE_TOGGLE_LISTENED, HANDLE_TOGGLE_FAVORITE } from "../actions/PlayListActions";
 import { playList } from "../components/states"
 
-export const reducer = (state = playList, action) => {
+const initialState = {
+    playList: playList.playList
+}
+
+const reducer = (state = initialState, action) => {
+    console.log(state.playList)
   switch (action.type) {
-    case HANDLE_TOGGLE_LISTENED:
-        let newListenedList = state.map((song) => {
-            if (song.id === action.payload) {
-              return { ...song, listened: !action.payload };
+    case HANDLE_TOGGLE_LISTENED: {
+        const songId = action.payload;
+        let newListenedList = state.playList.map((song) => {
+            if (song.id === songId) {
+              return { ...song, listened: !song.listened };
             } else {
               return song;
             }
           });
-          return newListenedList; 
-
-    case HANDLE_TOGGLE_FAVORITE:
-        let newFavoriteList = state.map((song) => {
-            if (song.id === action.payload) {
-              return { ...song, favorite: !action.payload };
+          return {playList: newListenedList}; 
+    }
+        
+    case HANDLE_TOGGLE_FAVORITE:{
+        const songId = action.payload;
+        let newFavoriteList = state.playList.map((song) => {
+            if (song.id === songId) {
+              return { ...song, favorite: !song.favorite };
             } else {
               return song;
             }
           });
-          return newFavoriteList; 
-
+          return {playList: newFavoriteList}; 
+    }
+    
     default:
       return state;
   }
 };
+
+export default reducer;

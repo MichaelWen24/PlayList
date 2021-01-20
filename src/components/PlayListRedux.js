@@ -1,22 +1,41 @@
-import React, { Component } from "react";
-import { playList } from "./states";
+import React from "react";
 import PlayItem from "./playItem";
+import { connect } from "react-redux";
 
-export default class PlayListRedux extends Component {
-  constructor(props) {
-    super(props);
+// class PlayListRedux extends Component {
+//   constructor(props) {
+//     super(props);
 
-    this.state = {
-      playList: "",
-    };
-  }
+//     this.state = {
+//       playList: "",
+//     };
+//   }
 
-  render() {
+function PlayListRedux(props){
+//   render() {
     return (
       <div className="All-List">
         <ul className="list-container">
           <li className="title">All Songs</li>
-          {playList.map((song) => {
+          {props.playList.map((song) => {
+            return (
+              <PlayItem key={song.id} song={song} />
+            );
+          })}
+        </ul>
+
+        <ul className="list-container">
+          <li className="title">Listened</li>
+          {props.listenedList.map((song) => {
+            return (
+              <PlayItem key={song.id} song={song} />
+            );
+          })}
+        </ul>
+
+        <ul className="list-container">
+          <li className="title">Favorite</li>
+          {props.favoriteList.map((song) => {
             return (
               <PlayItem key={song.id} song={song} />
             );
@@ -24,5 +43,18 @@ export default class PlayListRedux extends Component {
         </ul>
       </div>
     );
-  }
+//   }
 }
+
+const mapStateToProps = (state) => {
+    const playList = state.playList;
+    const favoriteList = playList.filter((song) => song.favorite);
+    const listenedList = playList.filter((song) => song.listened);
+    return {
+        playList,
+        favoriteList,
+        listenedList,
+    };
+}
+
+export default connect(mapStateToProps)(PlayListRedux);

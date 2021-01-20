@@ -2,16 +2,16 @@ export const HANDLE_TOGGLE_LISTENED = "HANDLE_TOGGLE_LISTENED";
 export const HANDLE_TOGGLE_FAVORITE = "HANDLE_TOGGLE_FAVORITE";
 
 
-export const handleToggleListened = (song) => {
+export const handleToggleListened = (id) => {
     return {
         type: HANDLE_TOGGLE_LISTENED,
-        payload: song,
+        payload: id,
     };
 };
 
-export const handleToggleFavorite = (song) => {
+export const handleToggleFavorite = (id) => {
     return {
         type: HANDLE_TOGGLE_FAVORITE,
-        payload: song,
+        payload: id,
     };
 };

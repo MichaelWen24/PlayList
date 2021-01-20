@@ -6,7 +6,6 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-    console.log(state.playList)
   switch (action.type) {
     case HANDLE_TOGGLE_LISTENED: {
         const songId = action.payload;
